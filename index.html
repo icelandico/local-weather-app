@@ -5,12 +5,36 @@
     <title>Local Weather</title>
     <meta name="description" content="Check weather in Your location">
     <meta name="keywords" content="freeCodeCamp weather javaScript">
+    <meta name="viewport" content="width=devide-width, initial-scale=1.0">
     <link rel="stylesheet" href="assets/style.css">
     <script defer src="https://use.fontawesome.com/releases/v5.0.9/js/all.js" integrity="sha384-8iPTk2s/jMVj81dnzb/iFR2sdA7u06vHJyyLlAd4snFpCl/SnyUjRrbdJsw1pGIl" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </head>
 <body>
-
-
+    <header>
+        <h1>Free Code Camp Project</h1>
+        <h2>Local Weather App</h2>
+    </header>
+    <section class="main">
+        <h3>Your location is <span class="location"></span></h3>
+        <div class="icons">
+            <div class="icon">
+                <span><span class="fas fa-tachometer-alt"></span></span>
+                <p>The pressure is</p>
+                <p class="pressure"></p>
+            </div>
+            <div class="icon">
+                <span><span class="fas fa-thermometer-half"></span></span>
+                <p>The temperature is</p>
+                <p class="temperature"></p>
+            </div>
+            <div class="icon">
+                <span><span class="fas fa-sun"></span></span>
+                <p>The weather conditions are</p>
+                <p class="conditions"></p>
+            </div>
+        </div>
+    </section>
+    <script src="assets/script.js"></script>
 </body>
 </html>

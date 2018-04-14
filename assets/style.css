@@ -1,1 +1,30 @@
+body {
+    background-color: #76af68;
+    text-align: center;
+}
+
+.main {
+    width: 60%;
+    margin: 0 auto;
+    border: 2px solid #000;
+}
+
+h3 {
+    padding: 10px;
+}
+
+.icons {
+    border: 2px solid #d7e2d5;
+    text-align: center;
+    display: flex;
+}
+
+.icon {
+    flex: 1;
+    padding: 15px;
+}
+
+.icon span {
+    font-size: 50px;
+}
 
