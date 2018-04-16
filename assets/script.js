@@ -5,9 +5,9 @@ $(function() {
     var $conditions = $(".conditions");
     var $weather_icon = $(".weather-icon");
     var $switch = $(".switch");
+    var $degree = $(".degree")
     var tempF = 0;
     var tempC = 0;
-    var tempA = 0;
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(function(position) {
             var lat = position.coords.latitude;
@@ -19,6 +19,7 @@ $(function() {
                 var icon_address = 'https://openweathermap.org/img/w/'+ icon + '.png';
                 tempC = (json["main"]["temp"]-273.15);
                 $temperature.html(tempC);
+                $degree.html(" °")
                 tempF = Math.ceil((tempC*9)/5 + 32);
                 $location.html(json["name"]);
                 $pressure.html(json["main"]["pressure"]);
@@ -29,14 +30,10 @@ $(function() {
         });
     }
 
-    function switchUnits(event) {
-        event.preventDefault();
-        return((tempC*9)/5+-459.67);
-    }
-
     function toggleTemp(event) {
         event.preventDefault();
-        $temperature.html(($temperature).html() == tempC ? tempF : tempC)
+        $temperature.html(($temperature).html() == tempC ? tempF: tempC);
+        $switch.html(($switch).html() == "To Fahrenheit" ? "To Celsius" : "To Fahrenheit");
 
     }
 

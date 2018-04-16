@@ -1,31 +1,50 @@
 body {
-    background-color: #76af68;
+    margin: 0;
+    padding: 0;
+    background: url("https://www.walldevil.com/wallpapers/w03/025271-abstract-background-gaussian-blur.jpg");
     text-align: center;
+    color: #d5d5d5;
+    font-family: 'Lato', sans-serif;
+    height: 80vh;
 }
 
 .main {
     width: 60%;
     margin: 0 auto;
-    border: 2px solid #000;
 }
 
 h3 {
     padding: 10px;
+    font-size: 3em;
 }
 
-.icons {
-    border: 2px solid #d7e2d5;
-    text-align: center;
+.info {
+    margin: 5%;
     display: flex;
 }
 
-.icon {
+.info_item {
     flex: 1;
-    padding: 15px;
 }
 
-.icon span {
-    font-size: 50px;
+.weather-icon {
+    transform: scale(2);
 }
+
+.conditions {
+    font-size: 2em;
+}
+
+.button {
+    margin-top: 20px;
+}
+
+.switch {
+    height: 30px;
+    width: 120px;
+    background: #3772aa;
+}
+
+
 
 
