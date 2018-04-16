@@ -1,4 +1,6 @@
 $(function() {
+    var $main = $(".main");
+    var $location_finding = $(".location-finding");
     var $location = $(".location");
     var $pressure = $(".pressure");
     var $temperature = $(".temperature");
@@ -10,6 +12,8 @@ $(function() {
     var tempC = 0;
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(function(position) {
+            $main.css({'display' : 'unset'});
+            $location_finding.css({'display' : 'none'});
             var lat = position.coords.latitude;
             var long = position.coords.longitude;
             var getIP ='https://api.openweathermap.org/data/2.5/weather?lat=' + lat + '&lon=' + long + '&APPID=de66a6659e14650907b5cf92ffde9e62';
@@ -36,7 +40,6 @@ $(function() {
         $switch.html(($switch).html() == "To Fahrenheit" ? "To Celsius" : "To Fahrenheit");
 
     }
-
 
     $switch.on("click", toggleTemp)
 });

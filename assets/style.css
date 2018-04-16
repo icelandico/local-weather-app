@@ -11,11 +11,20 @@ body {
 .main {
     width: 60%;
     margin: 0 auto;
+    display: none;
+    position: relative;
 }
 
 h3 {
     padding: 10px;
     font-size: 3em;
+}
+
+.location-finding {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 .info {
@@ -36,13 +45,22 @@ h3 {
 }
 
 .button {
-    margin-top: 20px;
+    margin-top: 10%;
 }
 
 .switch {
-    height: 30px;
-    width: 120px;
-    background: #3772aa;
+    padding: 0;
+    color: #fff;
+    background: rgba(0,0,0,0);
+    height: 50px;
+    width: 160px;
+    text-transform: uppercase;
+    border: 2px solid #fff;
+}
+
+.switch:hover {
+    background: rgba(54, 54, 54, 0.8);
+    border: 2px solid #363636;
 }
 
 
