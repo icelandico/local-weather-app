@@ -5,7 +5,7 @@ body {
     text-align: center;
     color: #d5d5d5;
     font-family: 'Lato', sans-serif;
-    height: 90vh;
+    min-height: 80vh;
 }
 
 .main {
@@ -13,7 +13,6 @@ body {
     margin: 0 auto;
     display: none;
 }
-
 
 .location-finding {
     display: flex;
@@ -24,13 +23,17 @@ body {
 
 .info {
     display: flex;
-    overflow: hidden;
     font-size: 3em;
 }
 
 .info_item {
-    margin: 5%;
+    margin: 1% 5%;
     flex: 1;
+}
+
+.degree {
+    white-space: pre-wrap;
+    word-wrap: break-word;
 }
 
 .weather-icon {
@@ -57,14 +60,12 @@ body {
 }
 
 footer {
-    margin-left: 0;
-    margin-right: 0;
+    margin: 3% 0;
 }
 
 .footer-text h3 {
-    margin-top: 5%;
-    margin-bottom: 2%;
     font-size: 1em;
+    margin-bottom: 3%;
 }
 
 .icons-container a {
@@ -85,8 +86,6 @@ a:hover {
     h3.temperature_container {
         float: left;
     }
-
-
 }
 
 
