@@ -7,9 +7,10 @@ $(function() {
     var $conditions = $(".conditions");
     var $weather_icon = $(".weather-icon");
     var $switch = $(".switch");
-    var $degree = $(".degree")
+    var $degree = $(".degree");
     var tempF = 0;
     var tempC = 0;
+
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(function(position) {
             $main.css({'display' : 'unset'});
@@ -23,13 +24,12 @@ $(function() {
                 var icon_address = 'https://openweathermap.org/img/w/'+ icon + '.png';
                 tempC = (json["main"]["temp"]-273.15);
                 $temperature.html(tempC);
-                $degree.html(" °")
+                $degree.html(" °");
                 tempF = Math.ceil((tempC*9)/5 + 32);
                 $location.html(json["name"]);
                 $pressure.html(json["main"]["pressure"]);
                 $conditions.html(json["weather"][0]["main"]);
                 $weather_icon.attr("src", icon_address);
-
             });
         });
     }
@@ -38,7 +38,6 @@ $(function() {
         event.preventDefault();
         $temperature.html(($temperature).html() == tempC ? tempF: tempC);
         $switch.html(($switch).html() == "To Fahrenheit" ? "To Celsius" : "To Fahrenheit");
-
     }
 
     $switch.on("click", toggleTemp)

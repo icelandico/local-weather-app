@@ -1,38 +1,35 @@
 body {
     margin: 0;
     padding: 0;
-    background: url("https://www.walldevil.com/wallpapers/w03/025271-abstract-background-gaussian-blur.jpg");
+    background: center center no-repeat url("https://www.walldevil.com/wallpapers/w03/025271-abstract-background-gaussian-blur.jpg");
     text-align: center;
     color: #d5d5d5;
     font-family: 'Lato', sans-serif;
-    height: 80vh;
+    height: 90vh;
 }
 
 .main {
     width: 60%;
     margin: 0 auto;
     display: none;
-    position: relative;
 }
 
-h3 {
-    padding: 10px;
-    font-size: 3em;
-}
 
 .location-finding {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 30vh;
 }
 
 .info {
-    margin: 5%;
     display: flex;
+    overflow: hidden;
+    font-size: 3em;
 }
 
 .info_item {
+    margin: 5%;
     flex: 1;
 }
 
@@ -42,10 +39,6 @@ h3 {
 
 .conditions {
     font-size: 2em;
-}
-
-.button {
-    margin-top: 10%;
 }
 
 .switch {
@@ -59,8 +52,41 @@ h3 {
 }
 
 .switch:hover {
-    background: rgba(54, 54, 54, 0.8);
+    background: rgba(180, 180, 180, 0.2);
     border: 2px solid #363636;
+}
+
+footer {
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.footer-text h3 {
+    margin-top: 5%;
+    margin-bottom: 2%;
+    font-size: 1em;
+}
+
+.icons-container a {
+    margin: 2%;
+    color: #ffffff;
+    font-size: 1em;
+}
+
+a:hover {
+    color: #363636;
+}
+
+@media (min-width: 968px) {
+    h3.location {
+        float: right;
+    }
+
+    h3.temperature_container {
+        float: left;
+    }
+
+
 }
 
 
