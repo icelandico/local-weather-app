@@ -23,7 +23,7 @@ body {
 
 .info {
     display: flex;
-    font-size: 3em;
+    font-size: 4vh;
 }
 
 .info_item {
@@ -79,6 +79,9 @@ a:hover {
 }
 
 @media (min-width: 968px) {
+    .info {
+        font-size: 3em;
+    }
     h3.location {
         float: right;
     }

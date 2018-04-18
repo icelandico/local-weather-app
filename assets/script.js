@@ -22,10 +22,10 @@ $(function() {
             $.getJSON(getIP, function (json) {
                 var icon = json["weather"][0]["icon"];
                 var icon_address = 'https://openweathermap.org/img/w/'+ icon + '.png';
-                tempC = (json["main"]["temp"]-273.15);
+                tempC = (Math.round((json["main"]["temp"]-273.15)));
                 $temperature.html(tempC);
-                $degree.html(" °");
-                tempF = Math.ceil((tempC*9)/5 + 32);
+                $degree.html("°");
+                tempF = Math.round((tempC*9)/5 + 32);
                 $location.html(json["name"]);
                 $pressure.html(json["main"]["pressure"]);
                 $conditions.html(json["weather"][0]["main"]);
