@@ -7,13 +7,12 @@ $(function() {
     var $conditions = $(".conditions");
     var $weather_icon = $(".weather-icon");
     var $switch = $(".switch");
-    var $degree = $(".degree");
     var tempF = 0;
     var tempC = 0;
 
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(function(position) {
-            $main.css({'display' : 'unset'});
+            $main.css({'display' : 'flex'});
             $location_finding.css({'display' : 'none'});
             var lat = position.coords.latitude;
             var long = position.coords.longitude;
@@ -22,10 +21,9 @@ $(function() {
             $.getJSON(getIP, function (json) {
                 var icon = json["weather"][0]["icon"];
                 var icon_address = 'https://openweathermap.org/img/w/'+ icon + '.png';
-                tempC = (Math.round((json["main"]["temp"]-273.15)));
-                $temperature.html(tempC);
-                $degree.html("°");
-                tempF = Math.round((tempC*9)/5 + 32);
+                tempC = Math.round((json["main"]["temp"]-273.15));
+                $temperature.html((tempC));
+                tempF = Math.round((((tempC*9)/5 + 32))) ;
                 $location.html(json["name"]);
                 $pressure.html(json["main"]["pressure"]);
                 $conditions.html(json["weather"][0]["main"]);
@@ -38,6 +36,7 @@ $(function() {
         event.preventDefault();
         $temperature.html(($temperature).html() == tempC ? tempF: tempC);
         $switch.html(($switch).html() == "To Fahrenheit" ? "To Celsius" : "To Fahrenheit");
+
     }
 
     $switch.on("click", toggleTemp)

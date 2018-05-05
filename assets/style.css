@@ -1,17 +1,33 @@
+@import url("reset.css");
+
+* {
+    box-sizing: border-box;
+}
+
 body {
     margin: 0;
     padding: 0;
     background: center center no-repeat url("https://wallpapercave.com/wp/wp2222400.jpg");
     text-align: center;
-    color: #d5d5d5;
-    font-family: 'Lato', sans-serif;
+    color: #fff;
+    font-family: 'Lato Thin', sans-serif;
     min-height: 80vh;
+}
+
+header {
+    margin: 2em;
+    font-size: 2em;
 }
 
 .main {
     width: 60%;
     margin: 0 auto;
     display: none;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    background: rgba(113, 130, 158, 0.2);
+    border-radius: 2em;
 }
 
 .location-finding {
@@ -21,27 +37,37 @@ body {
     height: 30vh;
 }
 
-.info {
-    display: flex;
-    font-size: 4vh;
-}
-
 .info_item {
-    margin: 1% 5%;
     flex: 1;
+    margin: 0.5em auto;
 }
 
-.degree {
-    white-space: pre-wrap;
-    word-wrap: break-word;
+.info_item h3 {
+    font-size: 2em;
+    margin: 10% 0;
+}
+.info_item span {
+    font-size: 4em
+}
+
+h3.temperature_container {
+    font-size: 5em;
+}
+
+div[class$="__"] {
+    float: left;
+    padding: 0 2em;
+    width: 40%;
 }
 
 .weather-icon {
-    transform: scale(2);
+    transform: scale(1.5);
+    margin: 10%;
 }
 
 .conditions {
     font-size: 2em;
+    margin: 10%;
 }
 
 .switch {
