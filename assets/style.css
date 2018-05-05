@@ -4,28 +4,27 @@
     box-sizing: border-box;
 }
 
-body {
-    margin: 0;
-    padding: 0;
+html, body {
     background: center center no-repeat url("https://wallpapercave.com/wp/wp2222400.jpg");
     text-align: center;
     color: #fff;
     font-family: 'Lato Thin', sans-serif;
-    min-height: 80vh;
+    height: 100%;
+    overflow: hidden;
 }
 
 header {
-    margin: 2em;
-    font-size: 2em;
+    margin: 5%;
+    font-size: 3vh;
 }
 
 .main {
-    width: 60%;
     margin: 0 auto;
+    margin-bottom: 4em;
+    width: 80%;
     display: none;
     flex-direction: column;
     justify-content: center;
-    text-align: center;
     background: rgba(113, 130, 158, 0.2);
     border-radius: 2em;
 }
@@ -39,30 +38,29 @@ header {
 
 .info_item {
     flex: 1;
-    margin: 0.5em auto;
+    margin: 5% auto;
 }
 
-.info_item h3 {
-    font-size: 2em;
-    margin: 10% 0;
-}
 .info_item span {
     font-size: 4em
 }
 
 h3.temperature_container {
-    font-size: 5em;
+    font-size: 10vh;
+}
+
+.icon {
+    display: flex;
 }
 
 div[class$="__"] {
-    float: left;
-    padding: 0 2em;
-    width: 40%;
+    flex: 1;
+    padding: 0 1em;
 }
 
 .weather-icon {
     transform: scale(1.5);
-    margin: 10%;
+    margin: auto;
 }
 
 .conditions {
@@ -70,7 +68,28 @@ div[class$="__"] {
     margin: 10%;
 }
 
+.add_info {
+    flex: 1;
+    display: flex;
+    margin: 1em 1em;
+}
+
+.add_info_item {
+    flex: 1;
+    border-right: 3px solid #fff;
+    font-size: 2vh;
+}
+
+.add_info_item.windy {
+    border: none;
+}
+
+.add_info__icon {
+    margin: 1em;
+}
+
 .switch {
+    margin: 5%;
     padding: 0;
     color: #fff;
     background: rgba(0,0,0,0);
@@ -86,7 +105,7 @@ div[class$="__"] {
 }
 
 footer {
-    margin: 3% 0;
+    margin-bottom: 10%;
 }
 
 .footer-text h3 {
@@ -104,18 +123,15 @@ a:hover {
     color: #363636;
 }
 
-@media (min-width: 968px) {
-    .info {
-        font-size: 3em;
-    }
-    h3.location {
-        float: right;
-    }
+/*@media (min-width: 968px) {*/
+    /*body {*/
+        /*height: 100vh;*/
+    /*}*/
 
-    h3.temperature_container {
-        float: left;
-    }
-}
+    /*.main {*/
+        /*height: 50%;*/
+    /*}*/
+/*}*/
 
 
 

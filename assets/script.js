@@ -3,6 +3,8 @@ $(function() {
     var $location_finding = $(".location-finding");
     var $location = $(".location");
     var $pressure = $(".pressure");
+    var $humidity = $(".humidity");
+    var $wind = $(".wind");
     var $temperature = $(".temperature");
     var $conditions = $(".conditions");
     var $weather_icon = $(".weather-icon");
@@ -25,7 +27,9 @@ $(function() {
                 $temperature.html((tempC));
                 tempF = Math.round((((tempC*9)/5 + 32))) ;
                 $location.html(json["name"]);
-                $pressure.html(json["main"]["pressure"]);
+                $pressure.html(json["main"]["pressure"] + " hPa");
+                $humidity.html(json["main"]["humidity"] + " %");
+                $wind.html(json["wind"]["speed"] + " m/s");
                 $conditions.html(json["weather"][0]["main"]);
                 $weather_icon.attr("src", icon_address);
             });
