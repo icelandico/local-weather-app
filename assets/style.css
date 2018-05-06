@@ -5,28 +5,74 @@
 }
 
 html, body {
-    background: center center no-repeat url("https://wallpapercave.com/wp/wp2222400.jpg");
+    background: #2980b9;
     text-align: center;
     color: #fff;
     font-family: 'Lato Thin', sans-serif;
-    height: 100%;
-    overflow: hidden;
+    font-size: 3vh;
+    width: 100%;
+    height: 95vh;
 }
 
 header {
-    margin: 5%;
-    font-size: 3vh;
+    margin: 1%;
 }
 
 .main {
     margin: 0 auto;
-    margin-bottom: 4em;
-    width: 80%;
     display: none;
     flex-direction: column;
+    height: 75%;
+    background: rgba(189, 195, 199, 0.2);
+    border-radius: 20px;
+    width: 75%;
+    align-items: center;
+}
+
+.info_item {
+    flex: 1;
+    /*outline: 1px solid red;*/
+    display: flex;
+    align-items: center;
+}
+
+.location {
+    font-size: 3vh;
+    font-weight: bold;
+}
+
+.temperature {
+    font-size: 7vh;
+}
+
+.info_item.cond {
+    flex: 1;
+    width: 15vw;
+    display: flex;
     justify-content: center;
-    background: rgba(113, 130, 158, 0.2);
-    border-radius: 2em;
+    margin: 0 10%;
+}
+
+.info__item__cond{
+    flex: 1;
+}
+
+.info_item.add_info {
+    display: flex;
+    margin: 2% 0;
+}
+.add_info_item {
+    flex: 1;
+    min-width: 15vw;
+    border-right: 2px solid white;
+}
+
+.add_info_item.windy {
+    border: none;
+}
+
+.add_info__icon {
+    margin-bottom: 15%;
 }
 
 .location-finding {
@@ -36,64 +82,17 @@ header {
     height: 30vh;
 }
 
-.info_item {
-    flex: 1;
-    margin: 5% auto;
-}
-
-.info_item span {
-    font-size: 4em
-}
-
-h3.temperature_container {
-    font-size: 10vh;
-}
-
-.icon {
-    display: flex;
-}
-
-div[class$="__"] {
-    flex: 1;
-    padding: 0 1em;
-}
-
-.weather-icon {
-    transform: scale(1.5);
-    margin: auto;
-}
-
-.conditions {
-    font-size: 2em;
-    margin: 10%;
-}
-
-.add_info {
-    flex: 1;
-    display: flex;
-    margin: 1em 1em;
-}
-
-.add_info_item {
-    flex: 1;
-    border-right: 3px solid #fff;
-    font-size: 2vh;
-}
-
-.add_info_item.windy {
-    border: none;
-}
-
-.add_info__icon {
-    margin: 1em;
+canvas {
+    display: inline-block;
+    margin-left: 3em;
 }
 
 .switch {
-    margin: 5%;
+    margin: 3em;
     padding: 0;
     color: #fff;
     background: rgba(0,0,0,0);
-    height: 50px;
+    height: 3em;
     width: 160px;
     text-transform: uppercase;
     border: 2px solid #fff;
@@ -104,34 +103,36 @@ div[class$="__"] {
     border: 2px solid #363636;
 }
 
-footer {
-    margin-bottom: 10%;
+.switch:focus {
+    outline: none;
 }
 
-.footer-text h3 {
-    font-size: 1em;
+footer {
     margin-bottom: 3%;
 }
 
+.footer-text {
+    margin-top: 3%;
+    margin-bottom: 10%;
+}
+
+.icons-container {
+    display: flex;
+}
+
 .icons-container a {
-    margin: 2%;
+    padding-right: 6%;
+    padding-left: 6%;
+    flex: 1;
     color: #ffffff;
-    font-size: 1em;
+    font-size: 0.5em;
 }
 
 a:hover {
     color: #363636;
 }
 
-/*@media (min-width: 968px) {*/
-    /*body {*/
-        /*height: 100vh;*/
-    /*}*/
 
-    /*.main {*/
-        /*height: 50%;*/
-    /*}*/
-/*}*/
 
 
 

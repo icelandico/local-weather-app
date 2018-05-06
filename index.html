@@ -8,6 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="assets/style.css">
     <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+    <script src="https://darkskyapp.github.io/skycons/skycons.js"></script>
     <script defer src="https://use.fontawesome.com/releases/v5.0.9/js/all.js" integrity="sha384-8iPTk2s/jMVj81dnzb/iFR2sdA7u06vHJyyLlAd4snFpCl/SnyUjRrbdJsw1pGIl" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </head>
@@ -15,18 +16,21 @@
 <header>
     <h1>Local Weather App - FCC Project</h1>
 </header>
-<section class="main">
+<div class="location-finding">
+    <h2>Finding location. Please wait...</h2>
+</div>
+<div class="main">
     <div class="info_item">
         <h3 class="location"></h3>
     </div>
     <div class="info_item">
         <h3 class="temperature_container temperature"></h3>
     </div>
-    <div class="info_item icon">
-        <div class="info__item__"><p class="conditions"></p></div>
-        <div class="info_item__"><img class="weather-icon" src="" alt="weather icon"></div>
+    <div class="info_item cond">
+        <div class="info__item__cond"><p class="conditions"></p></div>
+        <div class="info__item__cond"><canvas id="weather-icon" height="75" width="75"></canvas></div>
     </div>
-    <div class="add_info">
+    <div class="info_item add_info">
         <div class="add_info_item humid">
             <div class="add_info__icon"><span class="fas fa-tint"></span></div>
             <div class="humid__value"><p class="humidity"></p></div>
@@ -40,24 +44,22 @@
             <div class="pressure__value"><p class="wind"></p></div>
         </div>
     </div>
-    <div class="button">
+    <div class="info_item">
         <button type="button" class="switch">To Fahrenheit</button>
     </div>
-    <div class="location-finding">
-        <h2>Finding location. Please wait...</h2>
-    </div>
-<footer>
-    <div class="footer-text">
-        <h3>You can find me here</h3>
-    </div>
-    <div class="icons-container">
-        <a href="https://twitter.com/cartohistory" target="_blank"><span class="fab fa-twitter fa-2x"></span></a>
-        <a href="https://linkedin.com/in/michał-muszyński-819352118" target="_blank"><span class="fab fa-linkedin fa-2x"></span></a>
-        <a href="https://icelandico.carbonmade.com" target="_blank"><span class="far fa-map fa-2x"></span></a>
-        <a href="https://github.com/icelandico" target="_blank"><span class="fab fa-github-square fa-2x"></span></a>
-    </div>
-</footer>
-</section>
+    <footer>
+        <div class="footer-text">
+            <h3>You can find me here</h3>
+        </div>
+        <div class="icons-container">
+            <a href="https://twitter.com/cartohistory" target="_blank"><span class="fab fa-twitter fa-2x"></span></a>
+            <a href="https://linkedin.com/in/michał-muszyński-819352118" target="_blank"><span class="fab fa-linkedin fa-2x"></span></a>
+            <a href="https://icelandico.carbonmade.com" target="_blank"><span class="far fa-map fa-2x"></span></a>
+            <a href="https://github.com/icelandico" target="_blank"><span class="fab fa-github-square fa-2x"></span></a>
+        </div>
+    </footer>
+</div>
+
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.12/css/all.css"
       integrity="sha384-G0fIWCsCzJIMAVNQPfjH08cyYaUtMwjJwqiRKxxE/rx96Uroj1BtIQ6MLJuheaO9"
       crossorigin="anonymous">
