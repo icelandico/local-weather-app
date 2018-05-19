@@ -54,7 +54,7 @@ $(function() {
         $switch.html(($switch).html() == "To Fahrenheit" ? "To Celsius" : "To Fahrenheit");
 
     }
-    $switch.on("click", toggleTemp)
+    $switch.on("click", toggleTemp);
 });
 
 
