@@ -1,63 +1,70 @@
-$(function() {
-    var $main = $(".main");
-    var $location_finding = $(".location-finding");
-    var $location = $(".location");
-    var $pressure = $(".pressure");
-    var $humidity = $(".humidity");
-    var $wind = $(".wind");
-    var $temperature = $(".temperature");
-    var $conditions = $(".conditions");
-    var $weather_icon = $("#weather-icon");
-    var $switch = $(".switch");
+var main = document.querySelector(".main");
+var location_finding = document.querySelector(".location-finding");
+var location_city = document.querySelector(".location");
+var pressure = document.querySelector(".pressure");
+var humidity = document.querySelector(".humidity");
+var wind = document.querySelector(".wind");
+var temperature = document.querySelector(".temperature");
+var conditions = document.querySelector(".conditions");
+var weather_icon = document.querySelector("#weather-icon");
+var switchTemp = document.querySelector(".switch");
+var request = new XMLHttpRequest();
+var request2 = new XMLHttpRequest();
 
+function geolocatorParse() {
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(function (position) {
-            $main.css({'display': 'flex'});
-            $location_finding.css({'display': 'none'});
+            main.style.display = 'flex';
+            location_finding.style.display = 'none';
             var lat = position.coords.latitude;
             var long = position.coords.longitude;
-            var getIP = 'https://api.openweathermap.org/data/2.5/weather?lat=' + lat + '&lon=' + long + '&APPID=de66a6659e14650907b5cf92ffde9e62';
-            var getIcon = 'https://api.darksky.net/forecast/1678a0cbba8712f020e8c1129787ab9a/54,18';
-            $.getJSON(getIP, function (json) {
-                tempC = Math.round((json["main"]["temp"] - 273.15));
-                tempCIn = tempC + "°C";
-                $temperature.html((tempCIn));
-                tempF = Math.round((((tempC * 9) / 5 + 32)));
-                tempFIn = tempF + "°F";
-                $location.html(json["name"]);
-                $pressure.html(json["main"]["pressure"] + " hPa");
-                $humidity.html(json["main"]["humidity"] + " %");
-                $wind.html(json["wind"]["speed"] + " m/s");
-                $conditions.html(json["weather"][0]["main"]);
-
-                $.ajax({
-                    type: "GET",
-                    url: "https://api.darksky.net/forecast/ced710042ef563fc9a490fcd015bedf7/" + lat + "," + long,
-                    dataType: "jsonp"
-                }).done(function (data) {
-                    var obj = [data];
-
-                    function skycons() {
-                        var skycons = new Skycons({"color": "#fff", "resizeClear": true});
-                        skycons.add(document.getElementById("weather-icon"), obj[0].currently.icon);
-                        skycons.play();
-                    }
-                    skycons();
-                })
-            })
+            var getIP = 'https://api.openweathermap.org/data/2.5/weather?lat=' + lat + '&lon=' + long +
+                        '&APPID=de66a6659e14650907b5cf92ffde9e62';
+            var getIcon = 'https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/ced710042ef563fc9a490fcd015bedf7/'
+                          + lat + "," + long;
+            request.open('GET', getIP, true);
+            request2.open('GET', getIcon, true);
+            request.onload = function () {
+                data = JSON.parse(this.response);
+                insertData(data);
+            };
+            request2.onload = function () {
+                dataIcon = JSON.parse(this.response);
+                skycons(dataIcon)
+            };
+            request.send();
+            request2.send();
         });
     }
+}
 
-    function toggleTemp(event) {
-        event.preventDefault();
-        $temperature.html(($temperature).html() == tempCIn ? tempFIn: tempCIn);
-        $switch.html(($switch).html() == "To Fahrenheit" ? "To Celsius" : "To Fahrenheit");
+function skycons(dataIcon) {
+    var skycons = new Skycons({"color": "#fefefe", "resizeClear": true});
+    skycons.add(weather_icon, dataIcon.currently.icon);
+    skycons.play();
+}
 
-    }
-    $switch.on("click", toggleTemp)
-});
+function insertData(data) {
+    tempC = Math.round((data["main"]["temp"] - 273.15));
+    tempCIn = tempC + "°C";
+    temperature.innerHTML = (tempCIn);
+    tempF = Math.round((((tempC * 9) / 5 + 32)));
+    tempFIn = tempF + "°F";
+    location_city.innerHTML = data["name"];
+    pressure.innerHTML = data["main"]["pressure"] + " hPa";
+    humidity.innerHTML = data["main"]["humidity"] + " %";
+    wind.innerHTML = data["wind"]["speed"] + " m/s";
+    conditions.innerHTML = data["weather"][0]["main"];
+}
 
+function toggleTemp() {
+    console.log(temperature.textContent);
+    temperature.textContent = (temperature.textContent === tempCIn ? tempFIn: tempCIn);
+    switchTemp.textContent = (switchTemp.textContent === "To Fahrenheit" ? "To Celsius" : "To Fahrenheit");
+}
 
+window.onload = geolocatorParse();
+switchTemp.addEventListener('click', toggleTemp);
 
 
 
