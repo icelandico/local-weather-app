@@ -36,33 +36,6 @@ function fetchIcon(lat, long) {
     .catch(err => console.log(err))
 }
 
-function geolocatorParse() {
-  if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(function (position) {
-      main.style.display = 'flex';
-      location_finding.style.display = 'none';
-      var lat = position.coords.latitude;
-      var long = position.coords.longitude;
-      var getIP = 'https://api.openweathermap.org/data/2.5/weather?lat=' + lat + '&lon=' + long +
-        '&APPID=de66a6659e14650907b5cf92ffde9e62';
-      var getIcon = 'https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/ced710042ef563fc9a490fcd015bedf7/'
-        + lat + "," + long;
-      request.open('GET', getIP, true);
-      request2.open('GET', getIcon, true);
-      request.onload = function () {
-        data = JSON.parse(this.response);
-        insertData(data);
-      };
-      request2.onload = function () {
-        dataIcon = JSON.parse(this.response);
-        skycons(dataIcon)
-      };
-      request.send();
-      request2.send();
-    });
-  }
-}
-
 function skycons(dataIcon) {
   var skycons = new Skycons({ "color": "#fefefe", "resizeClear": true });
   skycons.add(weather_icon, dataIcon.currently.icon);
