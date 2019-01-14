@@ -12,17 +12,20 @@ var request = new XMLHttpRequest();
 var request2 = new XMLHttpRequest();
 
 function locator() {
-  let locationData = {}
   fetch('https://geoip-db.com/json/')
-  .then(res => res.json())
-  .then(data => showData(data))
-  .catch(err => console.log(err))
-  return locationData
+    .then(res => res.json())
+    .then(data => fetchWeatherData(data))
+    .catch(err => console.log(err))
 }
 
-function showData(json) {
-  console.log('showing')
-  location_city.innerHTML = json.city
+function fetchWeatherData(json) {
+  const lat = json.latitude;
+  const long = json.longitude
+  const weatherData = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&APPID=de66a6659e14650907b5cf92ffde9e62`
+  fetch(weatherData)
+    .then(res => res.json())
+    .then(data => insertData(data))
+    .catch(err => console.log(err))
 }
 
 function geolocatorParse() {
@@ -78,6 +81,3 @@ function toggleTemp() {
 
 window.onload = locator();
 switchTemp.addEventListener('click', toggleTemp);
-
-
-
