@@ -22,9 +22,17 @@ function fetchWeatherData(json) {
   const lat = json.latitude;
   const long = json.longitude
   const weatherData = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&APPID=de66a6659e14650907b5cf92ffde9e62`
+  fetchIcon(lat, long)
   fetch(weatherData)
     .then(res => res.json())
     .then(data => insertData(data))
+    .catch(err => console.log(err))
+}
+
+function fetchIcon(lat, long) {
+  fetch(`https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/ced710042ef563fc9a490fcd015bedf7/${lat},${long}`)
+    .then(res => res.json())
+    .then(data => skycons(data))
     .catch(err => console.log(err))
 }
 
