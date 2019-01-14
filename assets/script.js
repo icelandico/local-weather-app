@@ -1,5 +1,3 @@
-const main = document.querySelector(".main");
-const location_finding = document.querySelector(".location-finding");
 const location_city = document.querySelector(".location");
 const pressure = document.querySelector(".pressure");
 const humidity = document.querySelector(".humidity");
@@ -19,6 +17,7 @@ function locator() {
 }
 
 function fetchWeatherData(json) {
+  hideLoadScreen()
   const lat = json.latitude;
   const long = json.longitude
   const weatherData = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&APPID=de66a6659e14650907b5cf92ffde9e62`
@@ -53,6 +52,13 @@ function insertData(data) {
   humidity.innerHTML = data.main.humidity + " %";
   wind.innerHTML = data.wind.speed + " m/s";
   conditions.innerHTML = data.weather[0].main;
+}
+
+function hideLoadScreen() {
+  const main = document.querySelector(".main");
+  const location_finding = document.querySelector(".location-finding");
+  main.classList.add('loaded');
+  location_finding.classList.add('hidden');
 }
 
 function convertToFahrenheit(temp) {

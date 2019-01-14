@@ -20,16 +20,24 @@ html, body {
     flex: 1;
 }
 
+.location-finding.hidden {
+  display: none;
+}
+
 .main {
     flex: 1;
     margin: 5% auto;
-    display: flex;
+    display: none;
     flex-direction: column;
     height: 75%;
     background: rgba(189, 195, 199, 0.2);
     border-radius: 20px;
     min-width: 65%;
     align-items: center;
+}
+
+.loaded {
+  display: flex;
 }
 
 .main h1 {
