@@ -43,20 +43,24 @@ function skycons(dataIcon) {
 }
 
 function insertData(data) {
-  tempC = Math.round((data["main"]["temp"] - 273.15));
+  tempC = convertToCelsius(data.main.temp);
   tempCIn = tempC + "°C";
   temperature.innerHTML = (tempCIn);
-  tempF = convertToFahrenheit(tempC)
+  tempF = convertToFahrenheit(tempC);
   tempFIn = tempF + "°F";
   location_city.innerHTML = data["name"];
-  pressure.innerHTML = data["main"]["pressure"] + " hPa";
-  humidity.innerHTML = data["main"]["humidity"] + " %";
-  wind.innerHTML = data["wind"]["speed"] + " m/s";
-  conditions.innerHTML = data["weather"][0]["main"];
+  pressure.innerHTML = data.main.pressure + " hPa";
+  humidity.innerHTML = data.main.humidity + " %";
+  wind.innerHTML = data.wind.speed + " m/s";
+  conditions.innerHTML = data.weather[0].main;
 }
 
 function convertToFahrenheit(temp) {
   return Math.round((temp * 9) / 5 + 32);
+}
+
+function convertToCelsius(temp) {
+  return Math.round(temp - 273.15);
 }
 
 function toggleTemp() {
