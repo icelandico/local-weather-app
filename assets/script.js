@@ -6,8 +6,6 @@ const temperature = document.querySelector(".temperature");
 const conditions = document.querySelector(".conditions");
 const weather_icon = document.querySelector("#weather-icon");
 const switchTemp = document.querySelector(".switch");
-const request = new XMLHttpRequest();
-const request2 = new XMLHttpRequest();
 
 function locator() {
   fetch('https://geoip-db.com/json/')
