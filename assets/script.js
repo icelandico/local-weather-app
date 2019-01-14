@@ -1,15 +1,15 @@
-var main = document.querySelector(".main");
-var location_finding = document.querySelector(".location-finding");
-var location_city = document.querySelector(".location");
-var pressure = document.querySelector(".pressure");
-var humidity = document.querySelector(".humidity");
-var wind = document.querySelector(".wind");
-var temperature = document.querySelector(".temperature");
-var conditions = document.querySelector(".conditions");
-var weather_icon = document.querySelector("#weather-icon");
-var switchTemp = document.querySelector(".switch");
-var request = new XMLHttpRequest();
-var request2 = new XMLHttpRequest();
+const main = document.querySelector(".main");
+const location_finding = document.querySelector(".location-finding");
+const location_city = document.querySelector(".location");
+const pressure = document.querySelector(".pressure");
+const humidity = document.querySelector(".humidity");
+const wind = document.querySelector(".wind");
+const temperature = document.querySelector(".temperature");
+const conditions = document.querySelector(".conditions");
+const weather_icon = document.querySelector("#weather-icon");
+const switchTemp = document.querySelector(".switch");
+const request = new XMLHttpRequest();
+const request2 = new XMLHttpRequest();
 
 function locator() {
   fetch('https://geoip-db.com/json/')
@@ -37,7 +37,7 @@ function fetchIcon(lat, long) {
 }
 
 function skycons(dataIcon) {
-  var skycons = new Skycons({ "color": "#fefefe", "resizeClear": true });
+  const skycons = new Skycons({ "color": "#fefefe", "resizeClear": true });
   skycons.add(weather_icon, dataIcon.currently.icon);
   skycons.play();
 }
