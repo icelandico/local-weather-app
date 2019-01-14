@@ -23,7 +23,7 @@ html, body {
 .main {
     flex: 1;
     margin: 5% auto;
-    display: none;
+    display: flex;
     flex-direction: column;
     height: 75%;
     background: rgba(189, 195, 199, 0.2);

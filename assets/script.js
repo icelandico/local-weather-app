@@ -11,6 +11,20 @@ var switchTemp = document.querySelector(".switch");
 var request = new XMLHttpRequest();
 var request2 = new XMLHttpRequest();
 
+function locator() {
+  let locationData = {}
+  fetch('https://geoip-db.com/json/')
+  .then(res => res.json())
+  .then(data => showData(data))
+  .catch(err => console.log(err))
+  return locationData
+}
+
+function showData(json) {
+  console.log('showing')
+  location_city.innerHTML = json.city
+}
+
 function geolocatorParse() {
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(function (position) {
@@ -62,7 +76,7 @@ function toggleTemp() {
   switchTemp.textContent = (switchTemp.textContent === "To Fahrenheit" ? "To Celsius" : "To Fahrenheit");
 }
 
-window.onload = geolocatorParse();
+window.onload = locator();
 switchTemp.addEventListener('click', toggleTemp);
 
 
