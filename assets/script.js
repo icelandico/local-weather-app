@@ -46,13 +46,17 @@ function insertData(data) {
   tempC = Math.round((data["main"]["temp"] - 273.15));
   tempCIn = tempC + "°C";
   temperature.innerHTML = (tempCIn);
-  tempF = Math.round((((tempC * 9) / 5 + 32)));
+  tempF = convertToFahrenheit(tempC)
   tempFIn = tempF + "°F";
   location_city.innerHTML = data["name"];
   pressure.innerHTML = data["main"]["pressure"] + " hPa";
   humidity.innerHTML = data["main"]["humidity"] + " %";
   wind.innerHTML = data["wind"]["speed"] + " m/s";
   conditions.innerHTML = data["weather"][0]["main"];
+}
+
+function convertToFahrenheit(temp) {
+  return Math.round((((temp * 9) / 5 + 32)));
 }
 
 function toggleTemp() {
