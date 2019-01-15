@@ -12,7 +12,7 @@ function fetchData(address, func) {
   fetch(address)
     .then(res => res.json())
     .then(data => func(data))
-    .catch(err => console.log(err))
+    .catch(err => alert(err))
 }
 
 function fetchWeatherData(json) {
