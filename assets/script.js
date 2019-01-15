@@ -6,11 +6,12 @@ const temperature = document.querySelector(".temperature");
 const conditions = document.querySelector(".conditions");
 const weather_icon = document.querySelector("#weather-icon");
 const switchTemp = document.querySelector(".switch");
+const apiAddress = 'https://geoip-db.com/json/' 
 
-function locator() {
-  fetch('https://geoip-db.com/json/')
+function fetchData(address, func) {
+  fetch(address)
     .then(res => res.json())
-    .then(data => fetchWeatherData(data))
+    .then(data => func(data))
     .catch(err => console.log(err))
 }
 
@@ -19,18 +20,9 @@ function fetchWeatherData(json) {
   const lat = json.latitude;
   const long = json.longitude
   const weatherData = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&APPID=de66a6659e14650907b5cf92ffde9e62`
-  fetchIcon(lat, long)
-  fetch(weatherData)
-    .then(res => res.json())
-    .then(data => insertData(data))
-    .catch(err => console.log(err))
-}
-
-function fetchIcon(lat, long) {
-  fetch(`https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/ced710042ef563fc9a490fcd015bedf7/${lat},${long}`)
-    .then(res => res.json())
-    .then(data => skycons(data))
-    .catch(err => console.log(err))
+  const skyconsData = `https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/ced710042ef563fc9a490fcd015bedf7/${lat},${long}`
+  fetchData(skyconsData, skycons)
+  fetchData(weatherData, insertData)
 }
 
 function skycons(dataIcon) {
@@ -72,5 +64,5 @@ function toggleTemp() {
   switchTemp.textContent = (switchTemp.textContent === "To Fahrenheit" ? "To Celsius" : "To Fahrenheit");
 }
 
-window.onload = locator();
+window.onload = fetchData(apiAddress, fetchWeatherData);
 switchTemp.addEventListener('click', toggleTemp);
