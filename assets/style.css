@@ -34,7 +34,7 @@ body {
 	height: 75%;
 	background: rgba(189, 195, 199, 0.2);
 	border-radius: 20px;
-	min-width: 65%;
+	width: 90%;
 	align-items: center;
 }
 
@@ -145,4 +145,10 @@ footer {
 
 a:hover {
 	color: #363636;
+}
+
+@media screen and (min-width: 768px) {
+	.main {
+		width: 60%;
+	}
 }
